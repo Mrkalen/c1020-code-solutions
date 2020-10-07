@@ -9,8 +9,9 @@
   <form action="" method="get" class="form">
     <div class="form">
       <label for="email">Email</label>
-      <br />
+      <div>
       <input id="email" type="text">
+      </div>
     </div>
     <div>
       <label for="why is coding cool">Why is coding cool?</label>
@@ -22,22 +23,29 @@
         <option value="because it's powerful">Because it's powerful</option>
       </select>
     </div>
-    <div>
       <div>Favorite Language (choose one)</div>
-      <br />
-      <input type="radio" name="language" value="html" />HTML
-      <input type="radio" name="language" value="css" />CSS
-      <input type="radio" name="language" value="javascript" />JavaScript
+      <div>
+        <label for="html">
+      <input id="html" type="radio" name="language" value="html">HTML
+      </label>
+      <label for="css">
+      <input id="css" type="radio" name="language" value="css">CSS
+      </label>
+      <label for="javascript">
+      <input id="javascript" type="radio" name="language" value="javascript">JavaScript
+      </label>
     </div>
     <div>
-      <label>Would you like to sign up for more information?</label>
-      <br />
-      <input type="checkbox" name="sign me up" value="sign me up">Sign me up!
+      <div>Would you like to sign up for more information?</div>
+      <label for="sign-up">
+      <input id="sign-up" type="checkbox" name="sign me up" value="sign me up">Sign me up!
+      </label>
     </div>
     <div>
       <label for="comments">Comments</label>
-      <br />
+      <div>
       <textarea name="comments"></textarea>
+      </div>
     </div>
     <div>
       <input type="submit" name="submit" value="Submit">
