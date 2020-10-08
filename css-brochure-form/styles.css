@@ -1,0 +1,51 @@
+body {
+  font-family: sans-serif;
+}
+
+form > h1 {
+  text-align: center;
+  color: salmon;
+  text-transform: uppercase;
+}
+
+form {
+  min-width: 500px;
+  width: 50%;
+  margin: 1rem;
+  font-size: 0.75rem;
+}
+
+.form-input {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  height: 2.5rem;
+  border: 1.5px solid lightgray;
+}
+
+label {
+  padding-left: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+select {
+  border-color: ;
+  background-color: rgb(235, 235, 235);
+  padding-left: 1rem;
+}
+
+button {
+  text-align: end;
+  border-radius: 50px;
+  color: white;
+  background-color: salmon;
+  border-style: none;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  text-transform: uppercase;
+}
+
+.submit {
+  text-align: end;
+}
