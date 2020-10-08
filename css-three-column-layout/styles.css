@@ -1,0 +1,45 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: rgb(77, 146, 224);
+  color: white;
+  font-family: 'lato', Arial, Helvetica, sans-serif;
+  padding: 3rem 5rem 0 5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: lighter;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-third {
+  flex-basis: calc(100% / 3);
+  padding: 1rem 2rem;
+}
+
+.science {
+  max-width: 5rem;
+  background-color: white;
+  border-radius: 100%;
+  padding: 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+h2 {
+  font-size: medium;
+  font-weight: lighter;
+}
+
+p {
+  font-size: ;
+}
