@@ -1,0 +1,12 @@
+h1 {
+  font-family: "Sansita Swashed", 'Courier New', Courier, monospace;
+}
+
+h2 {
+  font-family: lato, 'Courier New', Courier, monospace;
+}
+
+p {
+  font-family: lato, 'Courier New', Courier, monospace;
+  line-height: 1.5rem;
+}
