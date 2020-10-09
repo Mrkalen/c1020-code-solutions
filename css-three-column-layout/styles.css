@@ -1,10 +1,10 @@
 .container {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: auto;
   background-color: rgb(77, 146, 224);
   color: white;
   font-family: 'lato', Arial, Helvetica, sans-serif;
-  padding: 3rem 5rem 0 5rem;
+  padding: 2rem 5rem 1rem 5rem;
   text-align: center;
   font-size: 0.75rem;
   font-weight: lighter;
@@ -22,13 +22,15 @@
 .column-third {
   flex-basis: calc(100% / 3);
   padding: 1rem 2rem;
+  align-self: center;
 }
 
-.science {
+.image-border {
   max-width: 5rem;
   background-color: white;
   border-radius: 100%;
   padding: 1rem;
+  margin: auto;
 }
 
 img {
@@ -41,5 +43,5 @@ h2 {
 }
 
 p {
-  font-size: ;
+  color: rgb(228, 227, 227);
 }
