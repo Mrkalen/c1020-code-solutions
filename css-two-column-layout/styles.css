@@ -1,13 +1,49 @@
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
+  font-family: 'karla', Arial, Helvetica, sans-serif;
 }
 
 .row {
   display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-.learn {
-  margin: 0;
+.column-full {
+  margin: 0 7rem;
+}
+
+.info-box {
+  display: flex;
+  padding: 2.5rem;
+  text-align: left;
+}
+
+.symbol {
+  margin: 0 0 auto 0;
+  max-width: 5rem;
+}
+
+.learn-more {
+  border: 2px salmon solid;
+  padding: 0.5rem 2rem;
+  background-color: white;
+  color: salmon;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h1 {
+  letter-spacing: 0.2rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+p {
+  line-height: 2rem;
 }
