@@ -1,0 +1,56 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Avenir', sans-serif;
+  background-color: silver;
+}
+
+.header-container {
+  margin: 1rem 2rem 4rem 2rem;
+  background-color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link-list {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+.header-link {
+  border-radius: 5px;
+}
+
+.hero-container {
+  background-image: url(images/hero.jpg);
+  background-size: cover;
+  height: 500px;
+  color: white;
+  position: relative;
+  margin: 0 2rem;
+}
+
+.hero-text {
+  position: absolute;
+  max-width: 25rem;
+  margin: 5rem;
+}
+
+li {
+  list-style-type: none;
+  background-color: white;
+  color: lightslategray;
+  padding: 1rem;
+}
+
+li:hover {
+  background-color: darkblue;
+}
+
+a {
+  text-decoration: none;
+}
