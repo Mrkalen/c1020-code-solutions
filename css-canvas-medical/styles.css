@@ -1,28 +1,54 @@
 .container {
   max-width: 1200px;
-  margin: 0 auto;
-  font-family: 'Avenir', sans-serif;
-  background-color: silver;
+  margin: 2rem auto;
+  font-family: 'Avenir', Arial, Helvetica, sans-serif;
+  background-color: ;
+  line-height: 2rem;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.legal a {
+  color: rgb(100, 100, 100);
 }
 
 .header-container {
-  margin: 1rem 2rem 4rem 2rem;
-  background-color: white;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid darkgray;
 }
 
 .header {
+  margin: 0 2rem;
   display: flex;
   justify-content: space-between;
+  background-color: white;
+}
+
+.logo {
+  width: 10rem;
 }
 
 .link-list {
   display: flex;
   justify-content: space-evenly;
   padding: 0;
+  margin: 0;
 }
 
 .header-link {
   border-radius: 5px;
+}
+
+.header a:not(.contact-us) {
+  color: rgb(150, 150, 150);
 }
 
 .hero-container {
@@ -34,23 +60,185 @@
   margin: 0 2rem;
 }
 
+.hero-overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.15);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .hero-text {
   position: absolute;
-  max-width: 25rem;
+  max-width: 35rem;
   margin: 5rem;
 }
 
-li {
-  list-style-type: none;
-  background-color: white;
-  color: lightslategray;
-  padding: 1rem;
-}
-
-li:hover {
+.get-started {
   background-color: darkblue;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.25rem;
 }
 
-a {
+.locations {
+  background-color: rgb(250, 250, 250);
+  margin-top: 4rem;
+  padding: 0 1rem 2rem;
+  color: rgb(100, 100, 100);
+}
+
+.locations-column-full {
+  max-width: 30rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.locations-row {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.locations-column-half {
+  margin: 2rem 0;
+}
+
+.contact-us {
+  background-color: darkblue;
+  color: white;
+  border-radius: 5px;
+}
+
+.header a:hover {
+  background-color: darkblue;
+  color: white;
+  border-radius: 5px;
+}
+
+.get-started:hover {
+  background-color: purple;
+}
+
+.contact-us:hover {
+  background-color: purple;
+}
+
+a.link:link {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  display: inline-block;
+}
+
+a.get-started:link {
+  padding: 0.75rem 3rem;
+  text-align: center;
   text-decoration: none;
+  display: inline-block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Tiempos Headline', Arial, sans-serif;
+}
+
+.hero-text > h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.15rem;
+}
+
+.locations h3 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.locations-column-half p {
+  font-size: 1.25rem;
+  font-weight: 425;
+}
+
+.learn-more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0 3rem;
+}
+
+.learn-more h3 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.ready {
+  line-height: normal;
+}
+
+.info-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: 6rem 8rem 6rem 4rem;
+  background-color: rgb(100, 100, 100);
+  color: white;
+}
+
+.info-col {
+  flex-basis: calc(100% / 3);
+}
+
+.canvas-white {
+  margin: 1rem 0;
+}
+
+.info-link {
+  color: white;
+  text-decoration: none;
+}
+
+.info-link-list {
+  margin: 0;
+  padding: 0;
+}
+
+img.canvas-white {
+  width: 20%;
+  padding-bottom: 1rem;
+}
+
+.col-1 {
+  flex-grow: 2;
+  line-height: 1.5rem;
+}
+
+.col-2 {
+  max-width: 15rem;
+}
+
+.col-3 {
+  max-width: 10rem;
+}
+
+.info p {
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.legal {
+  padding: 2rem;
+  background-color: rgb(250, 250, 250);
+  color: rgb(100, 100, 100);
+}
+
+.legal-list {
+  display: flex;
+}
+
+.legal-link {
+  padding-right: 2rem;
 }
