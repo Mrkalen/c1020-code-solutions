@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  font-family: sans-serif;
+  background-color: rgb(240, 240, 240);
+  padding: 0 5rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.column-quarter {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  width: 30%;
+  align-self: center;
+}
+
+img {
+  width: 100%;
+}
