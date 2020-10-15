@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  font-family: 'barlow', sans-serif;
+  background-color: rgb(240, 240, 240);
+  padding: 0 5rem 0.75rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.column-quarter {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  width: 30%;
+  align-self: center;
+}
+
+img {
+  width: 100%;
+}
+
+h1 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 0.5rem;
+}
