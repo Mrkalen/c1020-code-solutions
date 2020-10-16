@@ -25,11 +25,21 @@ body {
   margin: 0.5rem;
   width: 10rem;
   font-size: 0.5rem;
+  position: relative;
+}
+
+.bkg {
+  background-image: url(images/lv-bag.jpg);
+  position: absolute;
+  background-size: cover;
+  top: 0;
+  right: 0;
+  bottom: 3rem;
+  left: 0;
 }
 
 img {
   width: 100%;
-  object-fit: cover;
 }
 
 h2 {
@@ -44,6 +54,7 @@ p {
 a {
   text-decoration: none;
   color: black;
+  position: relative;
 }
 
 .size {
