@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  font-family: "DM Sans", arial, sans-serif;
+  color: black;
+  letter-spacing: 0.025rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.column-5th {
+  display: flex;
+  align-items: flex-end;
+  margin: 0.5rem;
+  width: 10rem;
+  font-size: 0.5rem;
+  position: relative;
+}
+
+.bkg {
+  background-image: url(images/lv-bag.jpg);
+  position: absolute;
+  background-size: cover;
+  top: 0;
+  right: 0;
+  bottom: 3rem;
+  left: 0;
+}
+
+img {
+  width: 100%;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+
+p {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+
+.size {
+  color: rgb(219, 219, 219);
+}
+
+span.price {
+  background-color: rgb(255, 239, 223);
+}
+
+span.retail {
+  text-decoration: line-through;
+  color: rgb(219, 219, 219);
+}
