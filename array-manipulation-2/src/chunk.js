@@ -2,6 +2,8 @@
 function chunk(array, size) {
   var chunked = [];
   var chunks = [];
+  var rest = Math.floor(array.length / size);
+
   for (var i = 0; i < array.length; i++) {
     chunks.push(array[i]);
     if (chunks.length === size) {
@@ -9,8 +11,12 @@ function chunk(array, size) {
       chunks = [];
     }
   }
-  if (array.length % 2) {
-    chunked.push(array.length - 1);
+  if (chunked.length === rest && chunks.length !== size) {
+    if (chunks.length === 0) {
+      return chunked;
+    } else {
+      chunked.push(chunks);
+    }
   }
   return chunked;
 }
