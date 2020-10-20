@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 function pick(source, keys) {
+  debugger;
   var properties = [];
   var values = [];
   var picked = {};
@@ -10,6 +11,8 @@ function pick(source, keys) {
     values.push(source[value]);
   }
   for (var i = 0; i < properties.length; i++) {
-    picked = source[keys[i]];
+    if (source[keys[i]] === true) {
+      picked.source[keys[i]];
+    }
   }
 }
