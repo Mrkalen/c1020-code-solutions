@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Amatic SC', Arial, Helvetica, sans-serif;
+  font-size: 5rem;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.correct {
+  color: chartreuse;
+}
+
+.wrong {
+  color: red;
+}
+
+.underline {
+  text-decoration: underline;
+}
