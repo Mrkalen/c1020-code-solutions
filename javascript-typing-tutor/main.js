@@ -1,17 +1,18 @@
-var $keypress = document.querySelectorAll('span');
+var $keyPress = document.querySelectorAll('span');
 
 var $focus = document.querySelector('body');
 
 $focus.addEventListener('keydown', pressedKey);
 
+var i = 0;
+
 function pressedKey(event) {
-  console.log(event.key);
-  // for (var i = 0; i < $keypress.length; i++) {
-  //   if ($keypress[i] === event.key) {
-  //     [i].className('correct');
-  //   } else {
-  //     [i].className('wrong');
-  //     i--;
-  //   }
-  // }
+  console.log('event.key:', event.key);
+  console.log('keyPress:', $keyPress[i].textContent);
+  if ($keyPress[i].textContent === event.key) {
+    $keyPress[i].setAttribute('class', 'correct');
+    i += 1;
+  } else {
+    $keyPress[i].setAttribute('class', 'wrong');
+  }
 }
