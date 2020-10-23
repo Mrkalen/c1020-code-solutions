@@ -16,7 +16,7 @@ function pressedKey(event) {
   console.log('typeOf', typeof $keyPress[i].textContent);
   console.log('Key Pressed:', event.key);
   console.log('Expected Key:', $keyPress[i].textContent);
-  if (event.key === ' ' && $keyPress[i].textContent === ' ') {
+  if (event.key === '  ' && $keyPress[i].textContent === ' ') {
     $keyPress[i].setAttribute('class', 'correct');
     i += 1;
     if (i === 30) {
