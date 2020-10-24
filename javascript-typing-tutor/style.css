@@ -4,13 +4,15 @@
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Amatic SC', Arial, Helvetica, sans-serif;
   font-size: 5rem;
+  text-align: center;
 }
 
 .container {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -24,5 +26,5 @@ body {
 }
 
 .underline {
-  border-bottom: 5px solid black;
+  border-bottom: solid;
 }
