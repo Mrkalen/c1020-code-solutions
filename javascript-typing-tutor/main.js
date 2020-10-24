@@ -1,32 +1,42 @@
 var count = 0;
+var letterCount = 0;
 
 var $keyPress = document.querySelectorAll('span');
 
 var $focus = document.querySelector('body');
-console.log('focus:', $focus);
+
 var $accuracyCounter = document.querySelector('.counter');
-console.log('accuracy counter:', $accuracyCounter);
+
+var $retry = document.querySelector('button');
+
 $focus.addEventListener('keydown', pressedKey);
 
-var i = 0;
-
 function pressedKey(event) {
-  if (i === 30) {
+  if (letterCount === 30) {
     return;
-  }
-  if (event.key === $keyPress[i].textContent) {
-    $keyPress[i].setAttribute('class', 'correct');
-    i += 1;
-    if (i === 30) {
-      return;
-    }
-    $keyPress[i].setAttribute('class', 'underline');
-  } else {
-    $keyPress[i].setAttribute('class', 'wrong underline');
   }
   if (event.key) {
     count++;
   }
-  var accuracy = Math.floor(100 / (count / i));
+  if (event.key === $keyPress[letterCount].textContent) {
+    $keyPress[letterCount].setAttribute('class', 'correct');
+    letterCount += 1;
+    if (letterCount === 30) {
+      $retry.setAttribute('class', 'active');
 
+      $retry.textContent = 'Try again?';
+
+      var accuracy = Math.floor(100 / (count / letterCount));
+
+      $accuracyCounter.textContent = 'Accuracy:' + accuracy + '%';
+      return;
+    }
+    $keyPress[letterCount].setAttribute('class', 'underline');
+  } else {
+    $keyPress[letterCount].setAttribute('class', 'wrong underline');
+  }
 }
+
+$retry.addEventListener('click', function (event) {
+  location.reload();
+});

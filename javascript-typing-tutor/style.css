@@ -26,5 +26,22 @@ body {
 }
 
 .underline {
-  border-bottom: solid;
+  text-decoration: underline;
+}
+
+.accuracy {
+  font-size: 3rem;
+}
+
+.retry-button {
+  background-color: white;
+  border: none;
+}
+
+.active {
+  font-family: 'Amatic SC', Arial, Helvetica, sans-serif;
+  font-size: 3rem;
+  background-color: purple;
+  border: 2px dotted chartreuse;
+  align-self: flex-start;
 }
