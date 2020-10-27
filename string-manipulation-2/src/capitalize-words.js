@@ -3,9 +3,11 @@ function capitalizeWords(string) {
   debugger;
   string = string.toLowerCase();
 
-  var strings = string.split(' ');
-  for (var i = 0; i < strings.length; i++) {
-    string = strings.replace(strings[i[0]], string[i[0]].toUpperCase());
+  var stringSplit = string.split(' ');
+  console.log(stringSplit);
+  for (var i = 0; i < stringSplit.length; i++) {
+    var word = [];
+    word = stringSplit[i[stringSplit[0]]].toUpperCase() + stringSplit.slice(1);
   }
-  return string;
+  return word;
 }
