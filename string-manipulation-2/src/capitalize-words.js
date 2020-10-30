@@ -5,6 +5,7 @@ function capitalizeWords(string) {
 
   var stringSplit = string.split(' ');
   console.log(stringSplit);
+<<<<<<< HEAD
 
 for (var i = 0; i < stringSplit.length; i++) {
 
@@ -19,5 +20,11 @@ for (var i = 0; i < stringSplit.length; i++) {
   }
 }
   
+=======
+  for (var i = 0; i < stringSplit.length; i++) {
+    var word = [];
+    word = stringSplit[i[stringSplit[0]]].toUpperCase() + stringSplit.slice(1);
+  }
+>>>>>>> 37980eefdebd51bfbdf95951d477d722891d2fd6
   return word;
 }
