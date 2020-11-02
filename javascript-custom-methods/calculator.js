@@ -16,24 +16,16 @@ var calculator = {
     return x * x;
   },
   sumAll: function (numbers) {
-    var sum;
+    var sum = 0;
     for (var i = 0; i < numbers.length; i++) {
-      if (sum === undefined) {
-        sum = numbers[i];
-      } else {
-        sum += numbers[i];
-      }
+      sum += numbers[i];
     }
     return sum;
   },
   getAverage: function (numbers) {
-    var sum;
+    var sum = 0;
     for (var i = 0; i < numbers.length; i++) {
-      if (sum === undefined) {
-        sum = numbers[i];
-      } else {
-        sum += numbers[i];
-      }
+      sum += numbers[i];
     }
     var average = sum / numbers.length;
     return average;
