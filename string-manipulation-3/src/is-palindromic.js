@@ -1,28 +1,27 @@
 /* eslint-disable no-unused-vars */
 function isPalindromic(string) {
-  debugger;
   var chars = string.split('');
-  var newString;
+  var noSpace;
   for (var j = 0; j < chars.length; j++) {
-    if (chars[j] !== ' ') {
-      if (newString === undefined) {
-        newString = chars[j];
-      } else {
-        newString += chars[j];
-      }
-    } chars.splice(chars[j], 1);
-  }
-
-  var reverse;
-
-  for (var i = 0; i < chars.length + 1; i++) {
-    if (reverse === undefined) {
-      reverse = chars[chars.length - i];
+    if (chars[j] === ' ') {
+      chars.splice(chars[j], 0);
+    } else if (noSpace === undefined) {
+      noSpace = chars[j];
     } else {
-      reverse += chars[chars.length - i];
+      noSpace += chars[j];
     }
   }
-  if (reverse === string) {
+  var newString = noSpace.split('');
+  var reverse;
+
+  for (var i = 0; i < newString.length + 1; i++) {
+    if (reverse === undefined) {
+      reverse = newString[newString.length - i];
+    } else {
+      reverse += newString[newString.length - i];
+    }
+  }
+  if (reverse === noSpace) {
     return true;
   } else {
     return false;
