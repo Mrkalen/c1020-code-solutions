@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 function isAnagram(firstString, secondString) {
-  debugger;
+
   var charsFirst = firstString.split('');
   var charsSecond = secondString.split('');
   var firstNoSpace;
@@ -23,17 +23,12 @@ function isAnagram(firstString, secondString) {
       secondNoSpace += charsSecond[j];
     }
   }
-
+  debugger;
   var firstSplit = firstNoSpace.split('');
   var secondSplit = secondNoSpace.split('');
-  var k = 0;
+  var letterCount = {};
 
-  while (k < firstSplit.length) {
-    if (secondSplit.includes(firstSplit[k]) && firstSplit.includes(secondSplit[k])) {
-      k++;
-    } else {
-      return false;
-    }
-  }
-  return true;
-}
+  for (var k = 0; k < firstSplit.length; k++) {
+          letterCount.firstSplit[k] += 1;
+
+};
