@@ -9,7 +9,8 @@ Student.prototype.getFullName = function () {
   var fullName = this.firstName + ' ' + this.lastName;
   return fullName;
 };
+
 Student.prototype.getIntroduction = function () {
-  var greeting = 'Hello, my name is ' + this.firstName + ' ' + this.lastName + ' And I am studying ' + this.subject;
+  var greeting = 'Hello, my name is ' + this.getFullName() + ' and I am studying ' + this.subject + '.';
   return greeting;
 };
