@@ -29,6 +29,12 @@ function isAnagram(firstString, secondString) {
   var letterCount = {};
 
   for (var k = 0; k < firstSplit.length; k++) {
-          letterCount.firstSplit[k] += 1;
-
-};
+    if (firstSplit.includes(secondSplit[k])) {
+      var index = firstSplit.findIndex(secondSplit[k]);
+      firstSplit.splice(index);
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
