@@ -3,20 +3,22 @@ var $chevLeft = document.querySelector('.left');
 var $chevRight = document.querySelector('.right');
 var $image = document.querySelectorAll('.image');
 var $circle = document.querySelectorAll('.circle');
-var $circlesContainer = document.querySelector('.circles');
 
 $carousel.addEventListener('click', function () {
-  console.log(event.target.getAttribute('class'));
-  debugger;
+  clearInterval(advanceIntervalId);
+
   if (event.target === $chevLeft) {
     for (var i = 0; i < $image.length; i++) {
       if ($image[i].getAttribute('class') === 'image') {
         $image[i].setAttribute('class', 'image hidden');
+        $circle[i].setAttribute('class', 'far fa-circle selector circle');
         if (i === 0) {
           $image[$image.length - 1].setAttribute('class', 'image');
+          $circle[$circle.length - 1].setAttribute('class', 'fas fa-circle selector circle');
           break;
         } else {
           $image[i - 1].setAttribute('class', 'image');
+          $circle[i - 1].setAttribute('class', 'fas fa-circle selector circle');
         }
       }
     }
@@ -24,11 +26,13 @@ $carousel.addEventListener('click', function () {
     for (var j = 0; j < $image.length; j++) {
       if ($image[j].getAttribute('class') === 'image') {
         $image[j].setAttribute('class', 'image hidden');
-        $circle[i];
+        $circle[j].setAttribute('class', 'far fa-circle selector circle');
         if (j === $image.length - 1) {
           $image[0].setAttribute('class', 'image');
+          $circle[0].setAttribute('class', 'fas fa-circle selector circle');
         } else {
           $image[j + 1].setAttribute('class', 'image');
+          $circle[j + 1].setAttribute('class', 'fas fa-circle selector circle');
           break;
         }
       }
@@ -47,4 +51,27 @@ $carousel.addEventListener('click', function () {
       event.target.setAttribute('class', 'fas fa-circle selector circle');
     }
   }
+  advanceIntervalId = setInterval(advance, 3000);
 });
+
+var advanceIntervalId = setInterval(advance, 3000);
+
+function advance() {
+  for (var m = 0; m < $image.length; m++) {
+    if (m !== $image.length - 1) {
+      if ($image[m].getAttribute('class') === 'image') {
+        $image[m].setAttribute('class', 'image hidden');
+        $circle[m].setAttribute('class', 'far fa-circle selector circle');
+        $image[m + 1].setAttribute('class', 'image');
+        $circle[m + 1].setAttribute('class', 'fas fa-circle selector circle');
+        break;
+      }
+    } else {
+      $image[m].setAttribute('class', 'image hidden');
+      $circle[m].setAttribute('class', 'far fa-circle selector circle');
+      $image[0].setAttribute('class', 'image');
+      $circle[0].setAttribute('class', 'fas fa-circle selector circle');
+      break;
+    }
+  }
+}
