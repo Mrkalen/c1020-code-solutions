@@ -5,9 +5,11 @@ function titleCase(string) {
   var capitalizedWords = '';
   for (var i = 0; i < words.length; i++) {
     if (i === 0) {
-      capitalizedWords = capitalize(words[i]);
+      capitalizedWords = capitalizeWord(words[i]);
     } else if (words[i].length > 3) {
-      capitalizedWords += ' ' + capitalize(words[i]);
+      capitalizedWords += ' ' + capitalizeWord(words[i]);
+    } else if (words[i].length <= 3) {
+
     }
   }
   return capitalizedWords;
@@ -56,4 +58,31 @@ function capitalizeWords(string) {
     }
   }
   return newString;
+}
+
+// Minor words
+
+function minorWords(word) {
+  var capitalized = '';
+  var minorWords = ['and', 'or', 'nor', 'but', 'a', 'an', 'the', 'as', 'at', 'by', 'for', 'in', 'of', 'on', 'per', 'to'];
+  for (var i = 0; i < minorWords.length; i++) {
+    if (word === minorWords[i]) {
+     capitalized = capitalizeWord(word);
+    }
+  }
+  return capitalized;
+}
+
+
+// Known words
+
+function knownWords(word) {
+  var knownWords = ['javascript', 'api', 'web'];
+  var capKnownWords = ['JavaScript', 'API', 'Web'];
+  for (var i = 0; i < knownWords.length; i++) {
+    if (word == knownWords[i]) {
+      word = capKnownWords[i];
+    }
+  }
+  return word;
 }
