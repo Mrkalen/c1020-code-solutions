@@ -23,15 +23,14 @@ function isAnagram(firstString, secondString) {
       secondNoSpace += charsSecond[j];
     }
   }
-  debugger;
   var firstSplit = firstNoSpace.split('');
   var secondSplit = secondNoSpace.split('');
   var letterCount = {};
-
   for (var k = 0; k < firstSplit.length; k++) {
+
     if (firstSplit.includes(secondSplit[k])) {
-      var index = firstSplit.findIndex(secondSplit[k]);
-      firstSplit.splice(index);
+      var index = firstSplit.indexOf(secondSplit[k]);
+      firstSplit.splice(index, 1);
     } else {
       return false;
     }
