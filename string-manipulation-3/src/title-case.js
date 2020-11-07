@@ -1,88 +1,60 @@
 /* eslint-disable no-unused-vars */
 function titleCase(string) {
-  debugger;
   var words = string.split(' ');
+  for (var j = 0; j < words.length; j++) {
+    words[j] = words[j].toLowerCase();
+    if (words[j] === 'web' || words[j] === 'javascript' || words[j] === 'api' || words[j] === 'javascript:') {
+      words[j] = knownWords(words[j]);
+    }
+  }
   var capitalizedWords = '';
   for (var i = 0; i < words.length; i++) {
     if (i === 0) {
       capitalizedWords = capitalizeWord(words[i]);
+    } else if (words[i].includes('-')) {
+      capitalizedWords += ' ' + capHyphen(words[i]);
+    } else if (words[i - 1][words[i - 1].length - 1] === ':') {
+      capitalizedWords += ' ' + capitalizeWord(words[i]);
     } else if (words[i].length > 3) {
       capitalizedWords += ' ' + capitalizeWord(words[i]);
-    } else if (words[i] == 'web' || ) {
-
+    } else {
+      capitalizedWords += ' ' + words[i];
     }
   }
   return capitalizedWords;
-}
-
-// Capitalize word string manipulation 1
-
-function capitalize(word) {
-  word = word.toLowerCase();
-  word = word[0].toUpperCase() + word.slice(1);
-  return word;
 }
 
 // capitalizeWord string manipulation 2
 
 function capitalizeWord(word) {
   word = word.toLowerCase();
-  word = word[0].toUpperCase() + word.slice(1);
-
-  if (word === 'Javascript') {
-    word = word.replace('s', 'S');
+  if (word === 'web' || word === 'javascript' || word === 'api' || word === 'javascript:') {
+    word = knownWords(word);
+  } else {
+    word = word[0].toUpperCase() + word.slice(1);
   }
+
   return word;
 }
-
-// CapitalizeWords
-
-function capitalizeWords(string) {
-  string = string.toLowerCase();
-
-  var stringSplit = string.split(' ');
-  for (var i = 0; i < stringSplit.length; i++) {
-    var word = [];
-    var newString;
-    word = stringSplit[i];
-    word = word[0].toUpperCase() + word.slice(1);
-
-    if (word === 'Javascript') {
-      word = word.replace('s', 'S');
-      newString = newString + ' ' + word;
-    }
-    if (newString === undefined) {
-      newString = word;
-    } else {
-      newString = newString + ' ' + word;
-    }
-  }
-  return newString;
-}
-
-// Minor words
-
-function minorWords(word) {
-  var capitalized = '';
-  var minorWords = ['and', 'or', 'nor', 'but', 'a', 'an', 'the', 'as', 'at', 'by', 'for', 'in', 'of', 'on', 'per', 'to'];
-  for (var i = 0; i < minorWords.length; i++) {
-    if (word === minorWords[i]) {
-     capitalized = capitalizeWord(word);
-    }
-  }
-  return capitalized;
-}
-
 
 // Known words
 
 function knownWords(word) {
-  var knownWords = ['javascript', 'api', 'web'];
-  var capKnownWords = ['JavaScript', 'API', 'Web'];
+  var knownWords = ['javascript', 'api', 'web', 'javascript:'];
+  var capKnownWords = ['JavaScript', 'API', 'Web', 'JavaScript:'];
   for (var i = 0; i < knownWords.length; i++) {
-    if (word == knownWords[i]) {
+    if (word === knownWords[i]) {
       word = capKnownWords[i];
     }
   }
   return word;
+}
+
+function capHyphen(word) {
+  var words = [];
+  if (word.includes('-')) {
+    words = word.split('-');
+    var string = words[0][0].toUpperCase() + words[0].slice(1) + '-' + words[1][0].toUpperCase() + words[1].slice(1);
+  }
+  return string;
 }
