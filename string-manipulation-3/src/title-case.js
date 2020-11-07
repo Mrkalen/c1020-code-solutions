@@ -8,7 +8,7 @@ function titleCase(string) {
       capitalizedWords = capitalizeWord(words[i]);
     } else if (words[i].length > 3) {
       capitalizedWords += ' ' + capitalizeWord(words[i]);
-    } else if (words[i].length <= 3) {
+    } else if (words[i] == 'web' || ) {
 
     }
   }
