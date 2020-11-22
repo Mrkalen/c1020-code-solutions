@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Carousel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="carousel">
+    <div class="row">
+      <div class="chevron">
+        <i class="fas fa-chevron-left selector left"></i>
+      </div>
+      <div class="images">
+        <img class="image" src="images/001.png" alt="bulbasaur">
+        <img class="image hidden" src="images/004.png" alt="bulbasaur">
+        <img class="image hidden" src="images/007.png" alt="bulbasaur">
+        <img class="image hidden" src="images/025.png" alt="bulbasaur">
+        <img class="image hidden" src="images/039.png" alt="bulbasaur">
+      </div>
+      <div class="chevron">
+        <i class="fas fa-chevron-right selector right"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="circles">
+        <i id="circle1" class="fas fa-circle selector circle"></i>
+        <i id="circle2" class="far fa-circle selector circle"></i>
+        <i id="circle3" class="far fa-circle selector circle"></i>
+        <i id="circle4" class="far fa-circle selector circle"></i>
+        <i id="circle5" class="far fa-circle selector circle"></i>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

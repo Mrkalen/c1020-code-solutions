@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.carousel {
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.circles {
+  justify-self: center;
+}
+
+.chevron > .selector {
+  padding: 1rem;
+}
+
+.circles > .selector {
+  padding: .5rem;
+}
+
+.selector:hover {
+  color: blue;
+  transform: scale(2);
+  transition-duration: .5s;
+}
+
+.hidden {
+  display: none;
+}
