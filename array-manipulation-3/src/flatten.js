@@ -2,7 +2,7 @@
 function flatten(array) {
   var flat = [];
   for (var i = 0; i < array.length; i++) {
-    if (typeof array[i] !== 'object') {
+    if (!Array.isArray(array[i])) {
       flat.push(array[i]);
     } else {
       for (var j = 0; j < array[i].length; j++) {
