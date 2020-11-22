@@ -18,13 +18,7 @@ $carousel.addEventListener('click', function () {
       revealImage(activeIndex);
     }
   } else if (event.target === $chevRight) {
-    if (activeIndex !== $image.length - 1) {
-      activeIndex += 1;
-      revealImage(activeIndex);
-    } else {
-      activeIndex = 0;
-      revealImage(activeIndex);
-    }
+    advance();
   } else if (event.target.className === 'far fa-circle selector circle') {
     event.target.setAttribute('class', 'fas fa-circle selector circle');
     for (var i = 0; i < $circle.length; i++) {
