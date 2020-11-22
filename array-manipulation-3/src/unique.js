@@ -4,7 +4,7 @@ function unique(array) {
 
   if (array.length === 0) {
     return unique;
-  } else if (unique.length === 0) {
+  } else {
     unique.push(array[0]);
   }
   var i = 0;
