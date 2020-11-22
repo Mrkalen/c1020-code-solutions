@@ -12,28 +12,23 @@ $carousel.addEventListener('click', function () {
   if (event.target === $chevLeft) {
     if (activeIndex !== 0) {
       activeIndex += -1;
-      hideImage();
       revealImage(activeIndex);
     } else {
       activeIndex = $image.length - 1;
-      hideImage();
       revealImage(activeIndex);
     }
   } else if (event.target === $chevRight) {
     if (activeIndex !== $image.length - 1) {
       activeIndex += 1;
-      hideImage();
       revealImage(activeIndex);
     } else {
       activeIndex = 0;
-      hideImage();
       revealImage(activeIndex);
     }
   } else if (event.target.className === 'far fa-circle selector circle') {
-    hideImage();
     event.target.setAttribute('class', 'fas fa-circle selector circle');
     for (var i = 0; i < $circle.length; i++) {
-      if ($circle[i].className === 'fas fa-circle selector circle') {
+      if ($circle[i] === event.target) {
         activeIndex = i;
         revealImage(activeIndex);
       }
@@ -42,14 +37,13 @@ $carousel.addEventListener('click', function () {
   advanceIntervalId = setInterval(advance, 3000);
 });
 
-function hideImage() {
-  for (var i = 0; i < $image.length; i++) {
-    $image[i].setAttribute('class', 'image hidden');
-    $circle[i].setAttribute('class', 'far fa-circle selector circle');
-  }
-}
-
 function revealImage(index) {
+  for (var i = 0; i < $image.length; i++) {
+    if (i !== activeIndex) {
+      $image[i].setAttribute('class', 'image hidden');
+      $circle[i].setAttribute('class', 'far fa-circle selector circle');
+    }
+  }
   $image[index].setAttribute('class', 'image');
   $circle[index].setAttribute('class', 'fas fa-circle selector circle');
 }
@@ -59,11 +53,9 @@ var advanceIntervalId = setInterval(advance, 3000);
 function advance() {
   if (activeIndex !== $image.length - 1) {
     activeIndex += 1;
-    hideImage();
     revealImage(activeIndex);
   } else {
     activeIndex = 0;
-    hideImage();
     revealImage(activeIndex);
   }
 }
