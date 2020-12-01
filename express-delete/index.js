@@ -18,8 +18,10 @@ const grades = [
 const app = express();
 
 app.delete('/api/grades/:id', (req, res) => {
-  grades.splice(req.params.id);
+  grades.splice(req.params.id, 1);
   res.sendStatus(204);
+  console.log(grades);
+  console.log(req.params.id);
 });
 
 app.get('/api/grades', (req, res) => {
