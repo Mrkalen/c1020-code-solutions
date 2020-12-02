@@ -5,18 +5,19 @@ const app = express();
 const grades = [];
 let nextId = 1;
 
-app.get('/api/grades', (req, res) => {
-  res.json(grades);
-});
-
 const jsonMid = express.json();
 
 app.use(jsonMid);
 
+app.get('/api/grades', (req, res) => {
+  res.status(200).send(grades);
+});
+
 app.post('/api/grades', (req, res) => {
-  grades.push(req.body);
-  grades[0].id = nextId;
-  res.status(201).send(grades.id[nextId]);
+  const body = req.body;
+  grades.push({ id: nextId, body });
+  const newGrade = grades[nextId - 1];
+  res.status(201).send(newGrade);
   nextId += 1;
 });
 
