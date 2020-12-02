@@ -19,11 +19,13 @@ const app = express();
 
 app.delete('/api/grades/:id', (req, res) => {
   const id = parseInt(req.params.id, 10);
-  if (grades[id] === undefined) {
-    res.status(400).send({ Error: `Could Not Find ID: ${req.params.id}` });
-  } else {
-    grades.splice(req.params.id, 1);
-    res.sendStatus(204);
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i].id[id] === undefined) {
+      res.status(400).send({ Error: `Could Not Find ID: ${req.params.id}` });
+    } else {
+      grades[i].id[id].splice(req.params.id, 1);
+      res.sendStatus(204);
+    }
   }
 });
 
