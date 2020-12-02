@@ -1,0 +1,70 @@
+{
+  "7": {
+    "id": 7,
+    "notes": {
+      "content": "Inertia is a property of matter."
+    }
+  },
+  "nextId": 14,
+  "notes": {
+    "1": {
+      "id": 1,
+      "content": "The event loop is how a JavaScript runtime pushes asynchronous callbacks onto the stack once the stack is cleared."
+    },
+    "2": {
+      "id": 2,
+      "content": "Prototypal inheritance is how JavaScript objects delegate behavior."
+    },
+    "3": {
+      "id": 3,
+      "content": "In JavaScript, the value of `this` is determined when a function is called; not when it is defined."
+    },
+    "4": {
+      "id": 4,
+      "content": "A closure is formed when a function retains access to variables in its lexical scope."
+    },
+    "5": {
+      "id": 5,
+      "content": {
+        "content": "Inertia is a property of matter."
+      }
+    },
+    "6": {
+      "id": 6,
+      "notes": {
+        "content": "Inertia is a property of matter."
+      }
+    },
+    "8": {
+      "id": 8,
+      "notes": {
+        "content": "Inertia is a property of matter."
+      }
+    },
+    "9": {
+      "id": 9,
+      "notes": {
+        "content": "Inertia is a property of matter."
+      }
+    },
+    "10": {
+      "notes": {
+        "content": "Inertia is a property of matter."
+      }
+    },
+    "11": {
+      "id": 11,
+      "note": {
+        "content": "Inertia is a property of matter."
+      }
+    },
+    "12": {
+      "id": 12,
+      "content": "Inertia is a property of matter."
+    },
+    "13": {
+      "id": 13,
+      "content": "Inertia is a property of matter."
+    }
+  }
+}
