@@ -15,7 +15,7 @@ app.get('/api/grades', (req, res) => {
 
 app.post('/api/grades', (req, res) => {
   const body = req.body;
-  grades.push({ id: nextId, body });
+  grades.push({ id: nextId, name: body.name, course: body.course, grade: body.grade });
   const newGrade = grades[nextId - 1];
   res.status(201).send(newGrade);
   nextId += 1;
