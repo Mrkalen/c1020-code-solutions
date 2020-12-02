@@ -18,10 +18,13 @@ const grades = [
 const app = express();
 
 app.delete('/api/grades/:id', (req, res) => {
-  grades.splice(req.params.id, 1);
-  res.sendStatus(204);
-  console.log(grades);
-  console.log(req.params.id);
+  const id = parseInt(req.params.id, 10);
+  if (grades[id] === undefined) {
+    res.status(400).send({ Error: `Could Not Find ID: ${req.params.id}` });
+  } else {
+    grades.splice(req.params.id, 1);
+    res.sendStatus(204);
+  }
 });
 
 app.get('/api/grades', (req, res) => {
