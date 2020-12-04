@@ -7,13 +7,3 @@ select "customers"."firstName",
   group by "customers"."firstName",
            "customers"."lastName"
   order by "Total Paid" desc;
-
-
-
--- select "amount",
---        "firstName",
---        "lastName"
---   from "payments"
---   join "customers" using ("customerId")
---   order by "amount" desc
---   limit 10;
