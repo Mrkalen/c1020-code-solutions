@@ -7,6 +7,22 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+app.get('/api/grades', (req, res, next) => {
+  const sql = `
+    select *
+      from "grades"
+  `;
+  db.query(sql)
+    .then(result => {
+      const grades = result.rows;
+      res.status(200).json(grades);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error has occurred.' });
+    });
+});
+
 app.get('/api/grades/:gradeId', (req, res, next) => {
   const gradeId = parseInt(req.params.gradeId, 10);
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
@@ -40,10 +56,10 @@ app.post('/api/grades', (req, res, next) => {
   const course = req.body.course;
   const scoreNum = parseInt(score, 10);
   if (!name || !score || !course) {
-    res.status(400).json({ Error: 'Grade must include a name, course, and score' });
+    res.status(400).json({ error: 'Grade must include a name, course, and score' });
 
   } else if (score < 1 || score > 100 || isNaN(scoreNum)) {
-    res.status(400).json({ Error: 'Score must be a number between 1-100' });
+    res.status(400).json({ error: 'Score must be a number between 1-100' });
 
   }
   const params = [name, course, score];
@@ -58,7 +74,7 @@ app.post('/api/grades', (req, res, next) => {
     })
     .catch(err => {
       console.error(err);
-      res.status(500).json({ Error: 'An unexpected error has occured' });
+      res.status(500).json({ error: 'An unexpected error has occured' });
     });
 
 });
@@ -72,7 +88,7 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
     res.status(400).json({ error: 'GradeId must be a positive integer' });
     return;
   } else if (score < 1 || score > 100 || isNaN(scoreNum)) {
-    res.status(400).json({ Error: 'Score must be a number between 1-100' });
+    res.status(400).json({ error: 'Score must be a number between 1-100' });
 
   }
   const params = [score, gradeId];
@@ -93,7 +109,7 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
     })
     .catch(err => {
       console.error(err);
-      res.status(500).json({ Error: 'An unexpected error has occurred' });
+      res.status(500).json({ error: 'An unexpected error has occurred' });
     });
 });
 
