@@ -9,21 +9,29 @@ console.log('Lodash is loaded:', typeof _ !== 'undefined');
 const players = [
   {
     name: 'bob',
-    hand: []
+    hand: [],
+    score: 0
   },
   {
     name: 'bill',
-    hand: []
+    hand: [],
+    score: 0
   },
   {
     name: 'brad',
-    hand: []
+    hand: [],
+    score: 0
   },
   {
     name: 'benjamin von cattenstein iii',
-    hand: []
+    hand: [],
+    score: 0
   }
 ];
+
+//
+// cards
+//
 
 const cards = [
   { rank: 'Ace', suit: 'clubs', value: 11 },
@@ -80,6 +88,10 @@ const cards = [
   { rank: 'King', suit: 'spades', value: 10 }
 ];
 
+//
+// Every day I'm Shuffling
+//
+
 const shuffled = [];
 
 function shuffle(deck) {
@@ -91,65 +103,91 @@ function shuffle(deck) {
   }
 }
 
-let count = 1;
-
 shuffle(cards);
 
-function deal(deck) {
+//
+// Lets make a Deal!
+//
+
+let count = 1;
+
+function deal(people) {
   for (let i = 0; i < players.length * 2; i++) {
-    if (count === 1) {
-      players[0].hand.push(shuffled[i]);
-      count += 1;
-    } else if (count === 2) {
-      players[1].hand.push(shuffled[i]);
-      count += 1;
-    } else if (count === 3) {
-      players[2].hand.push(shuffled[i]);
-      count += 1;
-    } else if (count === 4) {
-      players[3].hand.push(shuffled[i]);
-      count = 1;
-    }
+
+
+  //   if (count === 1) {
+  //     players[0].hand.push(shuffled[i]);
+  //     count += 1;
+  //   } else if (count === 2) {
+  //     players[1].hand.push(shuffled[i]);
+  //     count += 1;
+  //   } else if (count === 3) {
+  //     players[2].hand.push(shuffled[i]);
+  //     count += 1;
+  //   } else if (count === 4) {
+  //     players[3].hand.push(shuffled[i]);
+  //     count = 1;
+  //   }
+  // }
+}
+
+deal(players);
+
+//
+// score
+//
+
+function getScore() {
+  for (let i = 0; i < players.length; i++) {
+    players[i].score = players[i].hand[0] + players[i].hand[1];
   }
 }
 
-deal(shuffled);
+getScore();
+
+//
+// Winner Winner Chicken Dinner!
+//
 
 function winnerWinnerChickenDinner() {
-  let bob = 0;
-  let bill = 0;
-  let brad = 0;
-  let benjamin = 0;
+  const winners = [];
+
+  const maxScore = Math.max(
+    players[0].score,
+    players[1].score,
+    players[2].score,
+    players[3].score
+  );
 
   for (let i = 0; i < players.length; i++) {
-    if (i === 0) {
-      bob = addCards(players[i].hand);
-    } else if (i === 1) {
-      bill = addCards(players[i].hand);
-    } else if (i === 2) {
-      brad = addCards(players[i].hand);
-    } else {
-      benjamin = addCards(players[i].hand);
+    if (players[i].score === maxScore) {
+      winners.push(players[i])
     }
   }
 
-  const winner = Math.max(bob, bill, brad, benjamin);
-
-  if (bob === winner) {
-    return 'bob';
-  } else if (bill === winner) {
-    return 'bill';
-  } else if (brad === winner) {
-    return 'brad';
-  } else if (benjamin === winner) {
-    return 'benjamin';
+  if (winners.length > 1) {
+    tieBreaker(winners);
   }
+
+  console.log('maxScore', maxScore);
+
+  // if (bob === winner) {
+  //   return 'bob';
+  // } else if (bill === winner) {
+  //   return 'bill';
+  // } else if (brad === winner) {
+  //   return 'brad';
+  // } else if (benjamin === winner) {
+  //   return 'benjamin';
+  // }
 }
 
-function addCards(hands) {
-  let score = 0;
-  score = hands[0].value + hands[1].value;
-  return score;
+//
+// TieBreaker
+//
+
+function tieBreaker(array) {
+
 }
 
 console.log(`${winnerWinnerChickenDinner()} is the winner!!!!`);
