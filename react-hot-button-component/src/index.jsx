@@ -15,21 +15,23 @@ class HotButton extends React.Component {
 
   render() {
     const count = this.state.clickCount;
+    let className;
     if (count <= 3) {
-      return <button onClick={this.handleClick} className="cold">Hot Button</button>;
+      className = 'cold';
     } else if (count <= 6) {
-      return <button onClick={this.handleClick} className='cool'>Hot Button</button>;
+      className = 'cool';
     } else if (count <= 9) {
-      return <button onClick={this.handleClick} className='warm'>Hot Button</button>;
+      className = 'warm';
     } else if (count <= 12) {
-      return <button onClick={this.handleClick} className='hot'>Hot Button</button>;
+      className = 'hot';
     } else if (count <= 15) {
-      return <button onClick={this.handleClick} className='hotter'>Hot Button</button>;
+      className = 'hotter';
     } else if (count <= 18) {
-      return <button onClick={this.handleClick} className='hottest'>Hot Button</button>;
+      className = 'hottest';
     } else {
-      return <button onClick={this.handleClick} className='hottest'>Hot Button</button>;
+      className = 'hottest';
     }
+    return <button onClick={this.handleClick} className={className}>Hot Button</button>;
   }
 }
 
