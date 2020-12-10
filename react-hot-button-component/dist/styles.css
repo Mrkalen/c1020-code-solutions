@@ -1,0 +1,29 @@
+.cold {
+  background-color: blue;
+  color: white;
+}
+
+.cool {
+  background-color: blueviolet;
+  color: white;
+}
+
+.warm {
+  background-color: lightcoral;
+  color: white;
+}
+
+.hot {
+  background-color: lightsalmon;
+  color: black;
+}
+
+.hotter {
+  background-color: yellow;
+  color: black;
+}
+
+.hottest {
+  background-color: white;
+  color: black;
+}
