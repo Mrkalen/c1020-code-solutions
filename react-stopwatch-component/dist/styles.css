@@ -1,0 +1,19 @@
+.container {
+  background-color: red;
+  margin: 0 auto;
+  border: 2px black solid;
+  text-align: center;
+  width: 5rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.timer {
+  background-color: blue;
+  width: 5rem;
+  height: 5rem;
+  border: 2px black solid;
+  border-radius: 50%;
+}
