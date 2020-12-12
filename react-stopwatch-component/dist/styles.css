@@ -1,7 +1,5 @@
 .container {
-  background-color: red;
   margin: 0 auto;
-  border: 2px black solid;
   text-align: center;
   width: 5rem;
   height: 8rem;
@@ -11,7 +9,9 @@
 }
 
 .timer {
-  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 5rem;
   height: 5rem;
   border: 2px black solid;
