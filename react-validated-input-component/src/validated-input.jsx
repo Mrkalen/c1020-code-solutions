@@ -13,12 +13,7 @@ class ValidatedInput extends React.Component {
     this.setState({ password: event.target.value });
   }
 
-  handleSubmit() {
-    this.setState();
-  }
-
   digitValidation(pass) {
-
     const digit = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     for (let i = 0; i < digit.length; i++) {
       if (pass.includes(digit[i].toString())) {
@@ -84,7 +79,7 @@ class ValidatedInput extends React.Component {
       <div className='container'>
         <label htmlFor="Password">Password</label>
         <div className='input'>
-          <input value={this.state.password} onChange={this.handleChange} type="password" name="password" id="pass" />
+          <input onChange={this.handleChange} type="password" name="password" id="pass"/>
         </div>
         <div className={`errorText ${passError}`}>
           <i className={`${passMark}`}></i>
