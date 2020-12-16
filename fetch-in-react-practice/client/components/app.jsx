@@ -39,7 +39,7 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(newTodo => {
-        const list = this.state.todos;
+        const list = this.state.todos.slice();
         list.push(newTodo);
         this.setState(
           { todos: list }
@@ -57,7 +57,7 @@ export default class App extends React.Component {
   }
 
   toggleCompleted(todoId) {
-    const list = this.state.todos;
+    const list = this.state.todos.slice();
     let index = 0;
     const newIsCompState = { isCompleted: list.isCompleted };
     for (let i = 0; i < list.length; i++) {
