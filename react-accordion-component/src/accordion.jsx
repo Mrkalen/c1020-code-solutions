@@ -1,9 +1,12 @@
 import React from 'react';
 
-// class RowName extends React.Component() {
-
-// }
-class Accordion extends React.Component() {
+function subjectData(props) {
+  return (
+    <div className='subjectName'>{props.name}</div>,
+    <div className='subjectText'>{props.text}</div>
+  );
+}
+class Accordion extends React.Component {
   // constructor(props) {
   //   super(props);
   // }
@@ -11,8 +14,7 @@ class Accordion extends React.Component() {
   render() {
     return (
       <div className='container'>
-        <div className='rowName'>{accordionData}</div>
-        <div className='rowText'></div>
+        {accordionData.forEach(subjectData)}
       </div>
     );
   }
