@@ -1,25 +1,4 @@
 import React from 'react';
-
-function subjectData(props) {
-  return (
-    <div className='subjectName'>{props.name}</div>,
-    <div className='subjectText'>{props.text}</div>
-  );
-}
-class Accordion extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  render() {
-    return (
-      <div className='container'>
-        {accordionData.forEach(subjectData)}
-      </div>
-    );
-  }
-}
-
 const accordionData = [
   {
     name: 'Hypertext Markup Language',
@@ -34,5 +13,39 @@ const accordionData = [
     text: 'JavaScript, often abbreviated as JS, is a high-level interpreted programming language that conforms to the ECMAScript specification. JavaScript has a curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first class functions.'
   }
 ];
+
+// function SubjectData(props) {
+//   props.data.map(data => {
+//     return (
+//       <div className='subjectName'>{data.name}</div>,
+//       <div className='subjectText'>{data.text}</div>
+//     );
+//   });
+// }
+
+class Accordion extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.SubjectData = this.SubjectData.bind(this);
+  }
+
+  SubjectData(props) {
+    props.map(data => {
+      return (
+        <div className='subjectName'>{data.name}</div>,
+        <div className='subjectText'>{data.text}</div>
+      );
+    });
+  }
+
+  render() {
+    return (
+      <div className='container'>
+        {this.SubjectData(accordionData)}
+      </div>
+    );
+  }
+}
 
 export default Accordion;
