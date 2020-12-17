@@ -14,35 +14,25 @@ const accordionData = [
   }
 ];
 
-// function SubjectData(props) {
-//   props.data.map(data => {
-//     return (
-//       <div className='subjectName'>{data.name}</div>,
-//       <div className='subjectText'>{data.text}</div>
-//     );
-//   });
-// }
+function SubjectData(props) {
+  return (
+    <React.Fragment>
+      <div className='subjectName'>{props.name}</div>
+      <div className='subjectText'>{props.text}</div>
+    </React.Fragment>
+  );
+}
 
 class Accordion extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.SubjectData = this.SubjectData.bind(this);
-  }
-
-  SubjectData(props) {
-    props.map(data => {
-      return (
-        <div className='subjectName'>{data.name}</div>,
-        <div className='subjectText'>{data.text}</div>
-      );
-    });
-  }
 
   render() {
     return (
-      <div className='container'>
-        {this.SubjectData(accordionData)}
+      <div>
+        {
+          accordionData.map((subject, index) => {
+            return <SubjectData key={index} name={subject.name} text={subject.text}/>;
+          })
+        }
       </div>
     );
   }
