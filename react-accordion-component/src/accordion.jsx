@@ -18,16 +18,6 @@ const accordionData = [
 ];
 
 class SubjectData extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { stuff: [] };
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    // console.log(event.target);
-  }
 
   render() {
     return (
@@ -40,6 +30,23 @@ class SubjectData extends React.Component {
 }
 
 class Accordion extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { accData: accordionData };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const newAccData = this.state.accData.slice();
+    const clicked = event.target.textContent;
+    for (let i = 0; i < newAccData.length; i++) {
+      if (newAccData[i].name === clicked) {
+        newAccData[i].isToggled = !newAccData[i].isToggled;
+      }
+    }
+    this.setState({ accData: newAccData });
+  }
 
   render() {
     return (
