@@ -15,7 +15,7 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(res => console.log(res))
-      .then(event.target.reset())
+      .then(() => event.target.reset())
       .catch(err => console.error('Error:', err.message));
     /**
      * - prevent the browser from performing default form submission behavior
