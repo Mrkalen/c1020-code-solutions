@@ -1,0 +1,55 @@
+Home Page
+  1. The user is presented with the option to sign in.
+  2. If the user has not created a profile they can choose to create one.
+  3. If the user has created a profile, they may sign in.
+
+User can sign up
+  1. In the auth-form.jsx the render method is called.
+  2. In the render method there is a form control element being returned.
+  3. Within the form as the user enters their information the form calls the handleChange method.
+  4. The handleChange method takes the information from the user input and stores it in state.
+  5. From there the user clicks the submit button.
+  6. This activates the handleSubmit method.
+  7. From here the handleSubmit method prevents the default actions of the window.
+  8. After that the fetch function is called.
+  9. The fetch function then determines if it is sending a sign in or sign up request based on the action variable.
+  10. SERVER SIDE
+  11. Once the fetch request reaches the server it determines which route to take by reading the information sent from the fetch request.
+  12. Once the route is determined to be sign-up the post method of the app object determines if there is a username and password in the body of the fetch request.
+  13. If there is not an error is thrown (more on this later)
+  14. If an error is not thrown the password that was supplied is passed into the hash method of the argon2 object to be hashed (encrypted).
+  15. If an error occurs in the hash process it is passed on to the catch method (well talk about this later)
+  16. Then (wink wink) an anonymous function is called  that returns a query of the database.
+  17. The query is inserting the users data into the database.
+  18. If there is an error it is passed to the catch method (again more on this later)
+  19. Then (wink wink) the result from the query is used in an anonymous function.
+  20. The status method is called on the res object and passed the status code 201.
+  21. The json method is then called on the result of the return of the status method and passed the user data from the result of the database query.
+  22. The res object is then returned to the client.
+  23. If there was an error in any of the promises it is passed into the catch method.
+  24. The catch method is passed an anonymous function that returns the next function being passed the error.
+  25. If there are errors thrown or caught in this route we will discuss how they are handled later, for now we will pretend everything went as planned.
+  26. The result from the fetch request is then passed into the then method of the return of the fetch function.
+  27. Then the json method of the res object is is called and returned from an anonymous function.
+  28. Then (wink wink) the return of that method is passed into another then method with an anonymous function.
+  29. Here the result is tested, if the action from this.props was sign up (which it was) the hash is then changed to 'sign-in'.
+  30. When this happens the page re renders and the form is changed into the sign in form.
+  31. And this ends the journey of a user signing up (unless there were errors. Stop yelling well get there).
+
+User can sign in
+  1. In the auth-form.jsx the render method is called.
+  2. In the render method there is a form control element being returned.
+  3. Within the form as the user enters their information the form calls the handleChange method.
+  4. The handleChange method takes the information from the user input and stores it in state.
+  5. From there the user clicks the submit button.
+  6. This activates the handleSubmit method.
+  7. From here the handleSubmit method prevents the default actions of the window.
+  8. After that the fetch function is called.
+  9. The fetch function then determines if it is sending a sign in or sign up request based on the action variable.
+  10. SERVER SIDE
+  11. Once the fetch request reaches the server it deterimines which route to take by reading the information sent from the fetch request.
+  12. Once the route is determined to be sign-in the post method of the app object determines if there is a username and password in the body of the fetch request.
+
+
+Error Handling
+    1. Panic and Chaos
