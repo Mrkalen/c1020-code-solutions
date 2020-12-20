@@ -16,7 +16,7 @@ User can sign up
   10. SERVER SIDE
   11. Once the fetch request reaches the server it determines which route to take by reading the information sent from the fetch request.
   12. Once the route is determined to be sign-up the post method of the app object determines if there is a username and password in the body of the fetch request.
-  13. If there is not an error is thrown (more on this later)
+  13. If either is missing an error is thrown (more on this later)
   14. If an error is not thrown the password that was supplied is passed into the hash method of the argon2 object to be hashed (encrypted).
   15. If an error occurs in the hash process it is passed on to the catch method (well talk about this later)
   16. Then (wink wink) an anonymous function is called  that returns a query of the database.
@@ -30,11 +30,11 @@ User can sign up
   24. The catch method is passed an anonymous function that returns the next function being passed the error.
   25. If there are errors thrown or caught in this route we will discuss how they are handled later, for now we will pretend everything went as planned.
   26. The result from the fetch request is then passed into the then method of the return of the fetch function.
-  27. Then the json method of the res object is is called and returned from an anonymous function.
+  27. Then the json method of the res object is called and returned from an anonymous function.
   28. Then (wink wink) the return of that method is passed into another then method with an anonymous function.
   29. Here the result is tested, if the action from this.props was sign up (which it was) the hash is then changed to 'sign-in'.
   30. When this happens the page re renders and the form is changed into the sign in form.
-  31. And this ends the journey of a user signing up (unless there were errors. Stop yelling well get there).
+  31. And this ends the journey of a user signing up (unless there were errors. Stop yelling we'll get there).
 
 User can sign in
   1. In the auth-form.jsx the render method is called.
@@ -49,7 +49,46 @@ User can sign in
   10. SERVER SIDE
   11. Once the fetch request reaches the server it deterimines which route to take by reading the information sent from the fetch request.
   12. Once the route is determined to be sign-in the post method of the app object determines if there is a username and password in the body of the fetch request.
+  13. If either is missing an error is thrown (still waiting? Keep waiting. Or jump to error handling.)
+  14. If no error is thrown the database is queried using sql and params as its arguments.
+  15. Then (wink wink) the result from the query to see if a user was returned.
+  16. If one was not returned then an error is thrown (Well well well... we meet again)
+  17. If no error is thrown then the result from the argon2 method chain is returned
+  18. The first link in the chain is the verify method of argon2 using the hashedPassord in the database and the password provided by the user.
+  19. Then (wink....wink my eye is getting tired) if the passwords do not match an error is thrown (.................. you know the drill)
+  20. If the passwords do match a token is created and returned along with a payload back to the client.
+  21. If any errors occorued during the promise chain a catch method is at the end that takes err as a property and returns the next function with err as an argument. (error handling baby....go look at it)
+  22. CLIENT SIDE
+  23. Then (...) the result from the fetch method is deserialized.
+  24. Then (wink wink) the action variable is tested to see if it was 'sign-up' it was not.
+  25. Because it was not the result is tested to see if it has a user property AND a token property. If this is false everyone cries and we all go home.
+  26. Because the user and token were on the result, the onSignIn method of the props property of the this object is called with the argument of the result.
+  27. This method is a prop which has a value of a method in the app class.
+  28. This method first destructures the result provided to the onSignIn method.
+  29. Then it uses thsetItem method of the localStorage property of the window object and takes the arguments of a string and the token to store the user token for later use.
+  30. Then the setState method of the this object is called with the argument of an object with the user property with a value of user.
+  31. When the setState method is called the page is re rendered. When this happens you get Rick Rolled.
 
+User can stay signed in
+  1. When the page is rendered the pageContainer is called with the renderPage method as its child.
+  2. The renderPage method checks the route property of the state property of the this object which provides us with the path for the hash.
+  3. If the route path has a value of an empy string then the home page is returned and rendered.
+  4. If the path is strictly equal to 'sign-in' or 'sign-up' the auth page is rendered.
+  5. If the route path is neither of these it renders the NotFound page.
+  6. Every time the page is rendered this check is made.
 
-Error Handling
-    1. Panic and Chaos
+Error Handling (The moment youve been waiting for)
+    1. All errors are passed to our custom error handler errorMiddleware.
+    2. The errorMiddleware function is called and passed the err argument as well as the req, res, and next arguments.
+    3. If the error is an instance of our custom ClientError the status method of the res object is passed the status property of the err object.
+    4. Then the json method is called on the result of that return.
+    5. It is passed an object with the property of error with a value of the message property of the err object.
+    6. If it is not an instance of the ClientError then it is tested to see if it is an instance of a notBeforeError or a TokenExpiredError.
+    7. If this is true then the status method of the res object is called and passed the status code of 401.
+    8. Then the json method is called on the return of the status method call.
+    9. The json method takes an argument of an object with an error property with a value of a string
+    10. If neither of these previous errors are true then an error is logged to the console.
+    11. Then the status method of the res object is called with the error code of 500.
+    12. Then the json method is called on the return of the status call.
+    13. The json method takes an argument of an object with one property of error with a value of a string.
+    14. Chaos ensues.
